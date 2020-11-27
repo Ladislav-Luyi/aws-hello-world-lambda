@@ -6,7 +6,7 @@
     <groupId>com.example</groupId>
     <artifactId>lambda-console</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>hello-world-lambda-console</name>
     <description>Aws project console application</description>
 
     <properties>
