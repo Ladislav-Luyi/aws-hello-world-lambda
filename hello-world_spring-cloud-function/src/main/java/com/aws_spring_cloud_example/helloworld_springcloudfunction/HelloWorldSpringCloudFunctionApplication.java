@@ -20,6 +20,13 @@ public class HelloWorldSpringCloudFunctionApplication {
 
      Then in aws in env variables define function like:
      key: FUNCTION_NAME value: nameOfYourFunction
+
+     create shade file with maven package shade:shade
+     adjust manifest in shaded file:
+     add there line: Main-Class: com.aws_spring_cloud_example.helloworld_springcloudfunction.HelloWorldSpringCloudFunctionApplication
+
+     define handler method in your lambda function like:
+		com.aws_spring_cloud_example.helloworld_springcloudfunction.SpringLambdaHandler
 	 */
 
 	@Bean
@@ -28,8 +35,20 @@ public class HelloWorldSpringCloudFunctionApplication {
 	}
 
 	@Bean
+	public Function<String, String> lowerCase() {
+		return value -> value.toUpperCase();
+	}
+
+	@Bean
+	public Function<String, String> helloName(){
+		return s -> "Hello " + s;
+	}
+
+	@Bean
 	public Supplier<String> helloWorld(){
 		return () -> "Hello World!";
 	}
+
+
 
 }
